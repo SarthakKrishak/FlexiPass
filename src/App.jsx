@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect,useRef } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 
 const App = () => {
   const [length, setLength] = useState(8);
@@ -6,7 +6,7 @@ const App = () => {
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
 
-  const passwordRef = useRef(null)
+  const passwordRef = useRef(null);
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
@@ -26,56 +26,66 @@ const App = () => {
   }, [length, numAllowed, charAllowed, passwordGenerator]);
 
   const copyToClipboard = useCallback(() => {
-    passwordRef.current?.select()
-    passwordRef.current?.setSelectionRange(0,51);
+    passwordRef.current?.select();
+    passwordRef.current?.setSelectionRange(0, 51);
     window.navigator.clipboard.writeText(password);
-    alert("Copied")
-  },[password]);
+    alert("Copied");
+  }, [password]);
 
   return (
-    <div className="w-full h-screen bg-zinc-800 text-white flex flex-col items-center p-8">
-      <h1 className="text-3xl">Password Generator</h1>
-      <div className="flex flex-col w-1/3 mt-6 bg-red-600">
-        <div className="rounded-lg overflow-hidden flex w-full">
+    <div className="min-h-screen bg-zinc-800 text-white flex flex-col items-center px-4 py-8">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6 text-center">
+        Password Generator
+      </h1>
+
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl flex flex-col gap-4">
+        <div className="flex w-full rounded-lg overflow-hidden">
           <input
             type="text"
             value={password}
-            className="bg-zinc-600 py-3 w-3/4 px-4"
-            placeholder="password"
+            className="bg-zinc-600 py-3 px-4 w-full sm:w-3/4 text-sm sm:text-base"
+            placeholder="Password"
             readOnly
             ref={passwordRef}
           />
-          <button onClick={copyToClipboard} className="bg-green-500 px-6 rounded-r-lg w-1/4">
+          <button
+            onClick={copyToClipboard}
+            className="bg-green-500 px-4 sm:px-6 text-sm sm:text-base w-1/3 sm:w-1/4 rounded-r-lg"
+          >
             Copy
           </button>
         </div>
 
-        <div className="mt-4 bg-zinc-600 pl-6 py-3 rounded-lg flex items-center w-full gap-2">
-          <input
-            type="range"
-            min={6}
-            max={50}
-            value={length}
-            className="cursor-pointer"
-            onChange={(e) => setLength(parseInt(e.target.value))}
-          />
-          <label> Length: {length}</label>
+        <div className="bg-zinc-600 p-4 rounded-lg flex flex-col sm:flex-row flex-wrap gap-4 items-start sm:items-center">
+          <div className="flex items-center gap-2">
+            <input
+              type="range"
+              min={6}
+              max={50}
+              value={length}
+              className="cursor-pointer"
+              onChange={(e) => setLength(parseInt(e.target.value))}
+            />
+            <label className="text-sm sm:text-base">Length: {length}</label>
+          </div>
 
-          <input
-            className="ml-5"
-            type="checkbox"
-            defaultChecked={numAllowed}
-            onChange={() => setNumAllowed((prev) => !prev)}
-          />
-          <label> Number </label>
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              defaultChecked={numAllowed}
+              onChange={() => setNumAllowed((prev) => !prev)}
+            />
+            <label className="text-sm sm:text-base">Number</label>
+          </div>
 
-          <input
-            className="ml-5"
-            type="checkbox"
-            defaultChecked={charAllowed}
-            onChange={() => setCharAllowed((prev) => !prev)}
-          />
-          <label> Character</label>
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              defaultChecked={charAllowed}
+              onChange={() => setCharAllowed((prev) => !prev)}
+            />
+            <label className="text-sm sm:text-base">Character</label>
+          </div>
         </div>
       </div>
     </div>
