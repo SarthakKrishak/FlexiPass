@@ -29,6 +29,7 @@ const App = () => {
     passwordRef.current?.select()
     passwordRef.current?.setSelectionRange(0,51);
     window.navigator.clipboard.writeText(password);
+    alert("Copied")
   },[password]);
 
   return (
