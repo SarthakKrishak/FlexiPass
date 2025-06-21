@@ -21,7 +21,7 @@ A modern, feature-rich password generator built with React and Vite, designed to
 
 ## 🚀 Live Demo
 
-[Try FlexiPass Online](https://your-demo-link.com)
+[Try FlexiPass Online](https://flexipassword.vercel.app/)
 
 ## 🛠️ Installation
 
@@ -35,7 +35,7 @@ A modern, feature-rich password generator built with React and Vite, designed to
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/flexipass.git
+   git clone https://github.com/SarthakKrishak/FlexiPass.git
    cd flexipass
    ```
 
