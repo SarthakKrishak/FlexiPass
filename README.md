@@ -172,7 +172,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Sarthak Krishak**
 
 - Portfolio: [Linktree](https://linktr.ee/SarthakKrishak)
-- GitHub: [@yourusername](https://github.com/SarthakKrishak)
+- GitHub: [@SarthakKrishak](https://github.com/SarthakKrishak)
 
 ## 🙏 Acknowledgments
 
