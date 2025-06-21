@@ -172,7 +172,7 @@ const App = () => {
 
             {/* GitHub */}
             <a
-              href="https://github.com/yourusername/flexipass"
+              href="https://github.com/SarthakKrishak/FlexiPass"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 hover:text-blue-400 transition"
